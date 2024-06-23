@@ -27,7 +27,7 @@ class TypewriterAnimatedText extends AnimatedText {
 
   TypewriterAnimatedText(
     String text, {
-    TextAlign textAlign = TextAlign.start,
+    TextAlign textAlign = TextAlign.center,
     TextStyle? textStyle,
     this.speed = const Duration(milliseconds: 30),
     this.curve = Curves.linear,
@@ -123,7 +123,7 @@ class TypewriterAnimatedTextKit extends AnimatedTextKit {
   TypewriterAnimatedTextKit({
     Key? key,
     required List<String> text,
-    TextAlign textAlign = TextAlign.start,
+    TextAlign textAlign = TextAlign.center,
     required TextStyle textStyle,
     Duration speed = const Duration(milliseconds: 30),
     Duration pause = const Duration(milliseconds: 1000),
