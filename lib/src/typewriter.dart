@@ -55,21 +55,23 @@ class TypewriterAnimatedText extends AnimatedText {
   }
 
   @override
-  Widget completeText(BuildContext context) => RichText(
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: text,
-              style: DefaultTextStyle.of(context).style.merge(textStyle),
-            ),
-            TextSpan(
-              text: cursor,
-              style: cursorStyle ??
-                  DefaultTextStyle.of(context).style.merge(textStyle),
-            )
-          ],
+  Widget completeText(BuildContext context) => Center(
+        child: RichText(
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: text,
+                style: DefaultTextStyle.of(context).style.merge(textStyle),
+              ),
+              TextSpan(
+                text: cursor,
+                style: cursorStyle ??
+                    DefaultTextStyle.of(context).style.merge(textStyle),
+              )
+            ],
+          ),
+          textAlign: textAlign,
         ),
-        textAlign: textAlign,
       );
 
   /// Widget showing partial text
@@ -93,23 +95,25 @@ class TypewriterAnimatedText extends AnimatedText {
       visibleString = textCharacters.take(typewriterValue).toString();
     }
 
-    return RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: visibleString,
-            style: DefaultTextStyle.of(context).style.merge(textStyle),
-          ),
-          TextSpan(
-            text: cursor,
-            style: showCursor
-                ? cursorStyle ??
-                    DefaultTextStyle.of(context).style.merge(textStyle)
-                : const TextStyle(color: Colors.transparent),
-          )
-        ],
+    return Center(
+      child: RichText(
+        text: TextSpan(
+          children: [
+            TextSpan(
+              text: visibleString,
+              style: DefaultTextStyle.of(context).style.merge(textStyle),
+            ),
+            TextSpan(
+              text: cursor,
+              style: showCursor
+                  ? cursorStyle ??
+                      DefaultTextStyle.of(context).style.merge(textStyle)
+                  : const TextStyle(color: Colors.transparent),
+            )
+          ],
+        ),
+        textAlign: textAlign,
       ),
-      textAlign: textAlign,
     );
   }
 }
