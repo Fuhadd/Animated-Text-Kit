@@ -96,14 +96,18 @@ class TypewriterAnimatedText extends AnimatedText {
     return RichText(
       text: TextSpan(
         children: [
-          TextSpan(text: visibleString),
+          TextSpan(
+            text: visibleString,
+            style: DefaultTextStyle.of(context).style.merge(textStyle),
+          ),
           TextSpan(
             text: cursor,
-            style:
-                showCursor ? null : const TextStyle(color: Colors.transparent),
+            style: showCursor
+                ? cursorStyle ??
+                    DefaultTextStyle.of(context).style.merge(textStyle)
+                : const TextStyle(color: Colors.transparent),
           )
         ],
-        style: DefaultTextStyle.of(context).style.merge(textStyle),
       ),
       textAlign: textAlign,
     );
